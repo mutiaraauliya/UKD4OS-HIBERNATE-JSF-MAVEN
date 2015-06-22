@@ -12,33 +12,17 @@
     </ui:define>
 
     <ui:define name="content">
+      
         <h:form>
+               <p:panel>
  <p:growl id="loginmessage" showDetail="true" sticky="true"/>
  
-  <h3>Welcome #{loginBean.username}</h3>
-  
+ 
+ <h:outputText value="Welcome #{loginBean.username}"/>
+
   <h:commandLink action="#{loginBean.doLogout}" value="Logout"/> 
   
- 
- <p:panel>
-     
- <p:panelGrid columns="5">
-    
- <h:outputText value="Search By"/>
- <p:selectOneMenu value="#{produkControler.searchBy}">
- <f:selectItem itemLabel="Select One" itemValue="" />
- <f:selectItem itemLabel="ID Produk" itemValue="id" />
- <f:selectItem itemLabel="Nama" itemValue="nama" />
- <f:selectItem itemLabel="Harga" itemValue="harga" />
- </p:selectOneMenu>
- <h:inputText value="#{produkControler.searchValue}"/>
- <h:commandButton value="Search"
-action="#{produkControler.searchProduk()}"/>
- 
- 
- <h:commandButton value="Tampilkan Semua"
-action="#{produkControler.displayAll()}"/>
- </p:panelGrid>
+
  </p:panel>
  </h:form>
         <h:form>
