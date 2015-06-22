@@ -6,7 +6,7 @@
       xmlns:h="http://java.sun.com/jsf/html">
  
     <h:head>
-        <title>Login form</title>
+        <title>Aplikasi Produk Supermarket "FREYA"</title>
     </h:head>
     <h:body>
     	<h3>APLIKASI PRODUK SUPERMARKET "FREYA"</h3>
@@ -17,6 +17,8 @@
     	   <h:outputText value="password:"/>
     	   <h:inputSecret value="#{loginBean.password}" id="password"/>
     	   <br/>
+           <br/>
+           <br/>
     	   <h:commandButton id="button" value="Login" action="#{loginBean.doLogin}"/>
     	   <br/>
     	   <h:commandLink action="#{navigationBean.redirectToInfo}" />
