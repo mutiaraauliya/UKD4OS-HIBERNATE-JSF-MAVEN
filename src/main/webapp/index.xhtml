@@ -14,7 +14,12 @@
     <ui:define name="content">
         <h:form>
  <p:growl id="loginmessage" showDetail="true" sticky="true"/>
+ 
   <h3>Welcome #{loginBean.username}</h3>
+  
+  <h:commandLink action="#{loginBean.doLogout}" value="Logout"/> 
+  
+ 
  <p:panel>
      
  <p:panelGrid columns="5">
@@ -82,7 +87,7 @@ action="#{produkControler.updateProduk()}" ajax="false"/>
 action="#{produkControler.deleteProduk()}" ajax="false"/>
  
 
-<h:commandLink action="#{loginBean.doLogout}" value="Logout"/> 
+
  </h:panelGrid>
  </h:form>
  </p:panel>
