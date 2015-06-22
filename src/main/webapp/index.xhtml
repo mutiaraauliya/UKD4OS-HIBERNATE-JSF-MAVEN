@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <ui:define name="top">
+        APLIKASI PRODUK SUPERMARKET "FREYA"
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+ <p:growl id="loginmessage" showDetail="true" sticky="true"/>
+  <h3>Welcome #{loginBean.username}</h3>
+ <p:panel>
+     
+ <p:panelGrid columns="5">
+    
+ <h:outputText value="Search By"/>
+ <p:selectOneMenu value="#{produkControler.searchBy}">
+ <f:selectItem itemLabel="Select One" itemValue="" />
+ <f:selectItem itemLabel="ID Produk" itemValue="id" />
+ <f:selectItem itemLabel="Nama" itemValue="nama" />
+ <f:selectItem itemLabel="Harga" itemValue="harga" />
+ </p:selectOneMenu>
+ <h:inputText value="#{produkControler.searchValue}"/>
+ <h:commandButton value="Search"
+action="#{produkControler.searchProduk()}"/>
+ 
+ 
+ <h:commandButton value="Tampilkan Semua"
+action="#{produkControler.displayAll()}"/>
+ </p:panelGrid>
+ </p:panel>
+ </h:form>
+        <h:form>
+ <p:dataTable id="dataTable" var="produk"
+value="#{produkControler.produkList}">
+ <f:facet name="header">
+ Data Produk
+ </f:facet>
+ <p:column id="modelHeader" sortBy="#{produk.id}">
+ <f:facet name="header">
+ <h:outputText value="ID Produk" />
+ </f:facet>
+ <h:outputText value="#{produk.id}" />
+ </p:column>
+ <p:column sortBy="#{produk.nama}">
+ <f:facet name="header">
+ <h:outputText value="Nama Produk" />
+ </f:facet>
+ <h:outputText value="#{produk.nama}" />
+ </p:column>
+ <p:column sortBy="#{produk.harga}">
+ <f:facet name="header">
+ <h:outputText value="Harga" />
+ </f:facet>
+ <h:outputText value="#{produk.harga}" />
+ </p:column>
+ </p:dataTable>
+ </h:form>
+ <p:panel>
+ <h:form>
+     <h:panelGrid columns="2">
+ <h:outputText value="ID Produk"/>
+ <p:inputText value="#{produkControler.produk.id}"
+required="false"/>
+ <h:outputText value="Nama Produk"/>
+ <p:inputText value="#{produkControler.produk.nama}"
+required="true"/>
+ <h:outputText value="Harga"/>
+ <p:inputText value="#{produkControler.produk.harga}"
+required="true"/>
+ <p:commandButton value="Simpan"
+action="#{produkControler.addProduk()}" ajax="false"/>
+ <p:commandButton value="Ubah"
+action="#{produkControler.updateProduk()}" ajax="false"/>
+ <p:commandButton value="Hapus"
+action="#{produkControler.deleteProduk()}" ajax="false"/>
+ 
+
+<h:commandLink action="#{loginBean.doLogout}" value="Logout"/> 
+ </h:panelGrid>
+ </h:form>
+ </p:panel>
+    </ui:define>
+
+</ui:composition>
