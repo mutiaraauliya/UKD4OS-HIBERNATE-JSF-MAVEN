@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 /**
  * Simple login bean.
  *
- * @author itcuties
+ * @author mutiaraauliya
  */
 @ManagedBean
 @SessionScoped
