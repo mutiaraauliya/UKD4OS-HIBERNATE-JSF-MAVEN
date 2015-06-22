@@ -9,11 +9,15 @@
         <title>Aplikasi Produk Supermarket "FREYA"</title>
     </h:head>
     <h:body>
-    	<h3>APLIKASI PRODUK SUPERMARKET "FREYA"</h3>
-    	<h:form id="login-form">
+        <div style="background-color: mediumturquoise;margin-left: 250px;margin-right: 250px; ">
+            <br></br>
+    	<h3 style="text-align: center">APLIKASI PRODUK SUPERMARKET "FREYA"</h3>
+        <br></br>
+    	<h:form id="login-form" style="text-align: center">
     	   <h:outputText value="username:"/>
     	   <h:inputText value="#{loginBean.username}" id="username"/>
     	   <br/>
+           <br></br>
     	   <h:outputText value="password:"/>
     	   <h:inputSecret value="#{loginBean.password}" id="password"/>
     	   <br/>
@@ -26,5 +30,6 @@
     	   <h:messages />
     	   <br/>
     	</h:form>
+        </div>
     </h:body>
 </html>
